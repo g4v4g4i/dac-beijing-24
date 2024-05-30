@@ -1,0 +1,13 @@
+%%
+\node (a1) at (117.0bp,153.0bp) [ospale] {\afnode{a_1}{\mathsf{Cha}^f, \delta_1}{\mathsf{hunt}^b}};
+  \node (a2) at (117.0bp,99.0bp) [ospale] {\afnode{a_2}{\mathsf{Cha}^f, \delta_1, \delta_2}{\neg\mathsf{dress}^b}};
+  \node (b1) at (207.0bp,72.0bp) [os] {\afnode{b_1}{\mathsf{ball}^f, \delta_3}{\mathsf{dress}^b}};
+  \node (b2) at (207.0bp,18.0bp) [os] {\afnode{b_2}{\mathsf{ball}^f, \delta_3, \delta_4}{\mathsf{early}\mbox{-}\mathsf{home}^b}};
+  \node (d1) at (27.0bp,99.0bp) [os] {\afnode{d_1}{\mathsf{Cha}^f, \mathsf{ball}^f}{\neg\delta_1}};
+  \node (d2) at (117.0bp,45.0bp) [ospale] {\afnode{d_2}{\mathsf{Cha}^f, \mathsf{ball}^f, \delta_1, \delta_2}{\neg\delta_3}};
+  \draw [->,att] (d1) ..controls (59.151bp,118.12bp) and (74.111bp,127.3bp)  .. (a1);
+  \draw [->,att] (d1) ..controls (61.886bp,99.0bp) and (70.183bp,99.0bp)  .. (a2);
+  \draw [->,att] (d1) ..controls (59.151bp,79.885bp) and (74.111bp,70.705bp)  .. (d2);
+  \draw [->,att] (d2) ..controls (150.97bp,55.116bp) and (161.29bp,58.281bp)  .. (b1);
+  \draw [->,att] (d2) ..controls (150.97bp,34.884bp) and (161.29bp,31.719bp)  .. (b2);
+%
