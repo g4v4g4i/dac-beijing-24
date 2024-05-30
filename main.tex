@@ -621,7 +621,7 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
 \draw[darr] (env.0) to node[above] {\( \delta_3 \)} (negnuc);
 \end{tikzpicture}  
 
-\[ \underbrace { \axs{\Gamma, \alert{(\phi,\psi)^{d/n}} \Rightarrow} \RightLabel{Def1} \ir1{\Gamma \Rightarrow \alert{\neg(\phi,\psi)^{d/n}}} \DP }_{\mbox{for io-logic}} \qquad \underbrace {\axs{} \RightLabel{Def2} \ir1{\phi^{f}, \neg\psi^{b/o} \Rightarrow \alert{\neg(\phi,\psi)^{d/n}}} \DP}_{\mbox{for default logic}} \]
+\[ \underbrace { \axs{\Gamma, \alert{(\phi,\psi)^{n}} \Rightarrow} \RightLabel{Def1} \ir1{\Gamma \Rightarrow \alert{\neg(\phi,\psi)^{n}}} \DP }_{\mbox{for io-logic}} \qquad \underbrace {\axs{} \RightLabel{Def2} \ir1{\phi^{f}, \neg\psi^{b} \Rightarrow \alert{\neg(\phi,\psi)^{d}}} \DP}_{\mbox{for default logic}} \]
 
 \pause
 \begin{itemize}
@@ -676,12 +676,178 @@ d2 -> a2;
 \end{frame}
 \end{comment}
 
+\begin{frame}[standout]{}
+    \ldots enters argumentation ...
+\end{frame}
+
+\begin{frame}{Argumentative Attacks}
+  We track conflicts in knowledge bases with argumentative attacks, in particular with \alert{undercuts}.
+
+  \begin{center}
+  $\Gamma \, \Rightarrow \, {\color{blue}\neg (\phi,\psi)^{n/d}}$ \quad \alert{undercuts} \quad $\Delta, {\color{blue}(\phi,\psi)^{n/d}} \, \Rightarrow \, \sigma$.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Argumentation Frameworks (for Def2)}
+    \def\Wilma{{\sf Wilma}^f} \def\scifi{{\sf scifi}^f} \def\env{{\sf env}^f} \def\pronuc{{\sf pro\mbox{-}nuclear}} \def\prosci{{\sf pro\mbox{-}science}}
+    \def\deltaone{\delta_1} \def\deltathree{{\color{orange}\boldsymbol{\delta_3}}} \def\deltatwo{{\color{blue}\boldsymbol{\delta_2}}}
+
+\begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, node distance = .3cm and 1.5cm]
+\node [dnode] (Wilma) {\( w \): {\sf Wilma}};
+\node [ndnode, above right = of Wilma, yshift=-.2cm] (scifi) {\( q \): {\sf scifi-fan}};
+\node [ndnode, below right = of Wilma, yshift=.2cm] (env)   {\( u \): {\sf environmentalist}};
+\node [ndnode, right = of scifi] (prosci) {\( p \): {\sf pro-science}};
+\node [ndnode, right = of prosci] (nuclear) {\( n \): {\sf pro-nuclear}};
+\node [ndnode, right = of env] (negnuc) {\( \neg n \): {\sf \( \neg \)pro-nuclear}};
+
+\draw[sarr] (Wilma) to [bend left] node[above] {$\sigma_1$} (scifi.180);
+\draw[sarr] (Wilma) to [bend right] node[above] {$\sigma_2$} (env.180);
+\draw[darr] (scifi) to node[above] {\( \delta_1 \)} (prosci);
+\draw[darr] (prosci.0) to node[above] {\( \delta_2 \)} (nuclear);
+\draw[darr] (env.0) to node[above] {\( \delta_3 \)} (negnuc);
+\end{tikzpicture}  
+    
+    \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node (a) {\afnodeflat{a}{\Wilma, \sigma_1, \sigma_2, \deltaone, \deltatwo}{\neg\deltathree}};
+        \node[below = .8cm of a] (b) {\afnodeflat{b}{\Wilma, \sigma_1,\sigma_2, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[right = of a, yshift=.8cm] (c) {\afnodeflat{c}{\Wilma,\sigma_1, \sigma_2,\deltathree}{\neg\pronuc}};
+        \node[below = of c] (d) {\afnodeflat{d}{\Wilma,\sigma_1,\sigma_2,\deltaone}{\prosci}};
+        \node[below = of d] (e) {\afnodeflat{e}{\Wilma,\sigma_1, \sigma_2,\deltaone, \deltatwo}{\pronuc}};
+
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (b);
+        \draw[att, ->] (b) to (e);
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{What arguments to select: argumentation semantics}
+ \def\Wilma{{\sf Wilma}^f} \def\scifi{{\sf scifi}^f} \def\env{{\sf env}^f} \def\pronuc{{\sf pro\mbox{-}nuclear}} \def\prosci{{\sf pro\mbox{-}science}}
+    \def\deltaone{\delta_1} \def\deltathree{{\color{orange}\boldsymbol{\delta_3}}} \def\deltatwo{{\color{blue}\boldsymbol{\delta_2}}}
+
+    Many ways of selecting arguments from an argumentation framework have been defined by Dung and in follow-up work. We here focus on \alert{stable} selections. A selection of arguments should \alert{not contain conflicts} and should \alert{attack every argument that is not selected}.
+    \pause
+
+    In our example we have two stable sets:
+    \begin{columns}
+        \begin{column}{.5\textwidth}
+             \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node[os] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
+        \node[below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[right = of a, yshift=.8cm] (c) {\afnodeflat{c}{\ldots ,\deltathree}{\neg\pronuc}};
+        \node[os,below = of c] (d) {\afnodeflat{d}{\ldots,\deltaone}{\prosci}};
+        \node[os,below = of d] (e) {\afnodeflat{e}{\ldots,\deltaone, \deltatwo}{\pronuc}};
+        
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (b);
+        \draw[att, ->] (b) to (e);
+    \end{tikzpicture}
+        \end{column} \pause
+        \begin{column}{.5\textwidth}
+            \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node[] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
+        \node[os,below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[os, right = of a, yshift=.8cm] (c) {\afnodeflat{c}{\ldots ,\deltathree}{\neg\pronuc}};
+        \node[os,below = of c] (d) {\afnodeflat{d}{\ldots,\deltaone}{\prosci}};
+        \node[below = of d] (e) {\afnodeflat{e}{\ldots,\deltaone, \deltatwo}{\pronuc}};
+        
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (b);
+        \draw[att, ->] (b) to (e);
+    \end{tikzpicture}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{How to define a consequence relation?}
+\def\Wilma{{\sf Wilma}^f} \def\scifi{{\sf scifi}^f} \def\env{{\sf env}^f} \def\pronuc{{\sf pro\mbox{-}nuclear}} \def\prosci{{\sf pro\mbox{-}science}}
+    \def\deltaone{\delta_1} \def\deltathree{{\color{orange}\boldsymbol{\delta_3}}} \def\deltatwo{{\color{blue}\boldsymbol{\delta_2}}}
+    
+    Given stable argument selections we can define consequence relation, for instance, in the following ways:
+
+    \begin{itemize}
+\item \(\mathbb{K} \nc_{1} \phi\) iff for every stable set \(\mathcal{A}\), \(\exists a \in \mathcal{A}\) with conclusion \(\phi\); or
+\item \(\mathbb{K} \nc_{2} \phi\) iff \(\exists a \in \mathcal{A}\) with conclusion \(\phi\) that is in every stable set \(\mathcal{A}\).
+\end{itemize}
+In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
+
+\scalebox{.8}{
+ \begin{columns}
+        \begin{column}{.6\textwidth}
+             \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node[os] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
+        \node[below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[right = of a, yshift=.8cm] (c) {\afnodeflat{c}{\ldots ,\deltathree}{\neg\pronuc}};
+        \node[os,below = of c] (d) {\afnodeflat{d}{\ldots,\deltaone}{\prosci}};
+        \node[os,below = of d] (e) {\afnodeflat{e}{\ldots,\deltaone, \deltatwo}{\pronuc}};
+        
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (b);
+        \draw[att, ->] (b) to (e);
+    \end{tikzpicture}
+        \end{column} 
+        \begin{column}{.4\textwidth}
+            \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node[] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
+        \node[os,below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[os, right = of a, yshift=.8cm] (c) {\afnodeflat{c}{\ldots ,\deltathree}{\neg\pronuc}};
+        \node[os,below = of c] (d) {\afnodeflat{d}{\ldots,\deltaone}{\prosci}};
+        \node[below = of d] (e) {\afnodeflat{e}{\ldots,\deltaone, \deltatwo}{\pronuc}};
+        
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (b);
+        \draw[att, ->] (b) to (e);
+    \end{tikzpicture}
+        \end{column}
+    \end{columns}
+    }
+\end{frame}
+
+\begin{frame}{In contrast: Argumentation Frameworks (for Def1)}
+    \def\Wilma{{\sf Wilma}^f} \def\scifi{{\sf scifi}^f} \def\env{{\sf env}^f} \def\pronuc{{\sf pro\mbox{-}nuclear}} \def\prosci{{\sf pro\mbox{-}science}}
+    \def\deltaone{\color{red}{\delta_1}} \def\deltathree{{\color{orange}\boldsymbol{\delta_3}}} \def\deltatwo{{\color{blue}\boldsymbol{\delta_2}}}
+
+\begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, node distance = .3cm and 1.5cm]
+\node [dnode] (Wilma) {\( w \): {\sf Wilma}};
+\node [ndnode, above right = of Wilma, yshift=-.2cm] (scifi) {\( q \): {\sf scifi-fan}};
+\node [ndnode, below right = of Wilma, yshift=.2cm] (env)   {\( u \): {\sf environmentalist}};
+\node [ndnode, right = of scifi] (prosci) {\( p \): {\sf pro-science}};
+\node [ndnode, right = of prosci] (nuclear) {\( n \): {\sf pro-nuclear}};
+\node [ndnode, right = of env] (negnuc) {\( \neg n \): {\sf \( \neg \)pro-nuclear}};
+
+\draw[sarr] (Wilma) to [bend left] node[above] {$\sigma_1$} (scifi.180);
+\draw[sarr] (Wilma) to [bend right] node[above] {$\sigma_2$} (env.180);
+\draw[darr] (scifi) to node[above] {\( \delta_1 \)} (prosci);
+\draw[darr] (prosci.0) to node[above] {\( \delta_2 \)} (nuclear);
+\draw[darr] (env.0) to node[above] {\( \delta_3 \)} (negnuc);
+\end{tikzpicture}  
+    
+    \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
+        \node (a) {\afnodeflat{a}{\Wilma, \sigma_1, \sigma_2, \deltaone, \deltatwo}{\neg\deltathree}};
+\node[os, below = .7cm of a] (f) {\afnodeflat{f}{\Wilma,\sigma_2,\sigma_3}{\neg\deltaone}};
+        \node[below = .7cm of f] (b) {\afnodeflat{b}{\Wilma, \sigma_1,\sigma_2, \deltaone, \deltathree}{\neg\deltatwo}};
+        \node[os,right = of a] (c) {\afnodeflat{c}{\Wilma,\sigma_1, \sigma_2,\deltathree}{\neg\pronuc}};
+        \node[below = of c] (d) {\afnodeflat{d}{\Wilma,\sigma_1,\sigma_2,\deltaone}{\prosci}};
+        \node[below = of d] (e) {\afnodeflat{e}{\Wilma,\sigma_1, \sigma_2,\deltaone, \deltatwo}{\pronuc}};
+
+        \draw[att,->] (a) to (c);
+        \draw[att, <->] (a) to (f);
+        \draw[att, ->] (b) to (e);
+        \draw[att, <->] (b) to (f);
+        \draw[att, <->] (a.180) to [bend right] (b.180);
+        \draw[att, ->] (f) to (d);
+        \draw[att, ->] (f) to (e);
+    \end{tikzpicture}
+\end{frame}
+
+
+\begin{comment}
 \begin{frame}{Argumentation graph of Default Logic Paradigm}
     \begin{figure}
 		\centering
 		\includegraphics[scale=0.9]{pic/attack graph.pdf}
 	\end{figure}
 \end{frame}
+    
 
 
 \begin{frame}{Argumentation graph of Input/Output Logic Paradigm}
@@ -690,6 +856,7 @@ d2 -> a2;
 		\includegraphics[scale=0.9]{pic/attack graph2.pdf}
 	\end{figure}
 \end{frame}
+\end{comment}
 
 \begin{frame}[label={sec:orgd9716e2},standout]{}
 Let's sum up \ldots{}
@@ -710,11 +877,8 @@ We then apply \alert{argumentation semantics}. E.g., sets of arguments \(\mathca
 \end{itemize}
 \pause
 
-We define nonmonotonic \alert{consequence relations}, such as:
-\begin{itemize}
-\item \(\mathbb{K} \nc_{1} \phi\) iff for every selected set \(\mathcal{A}\), there is an argument \(a \in \mathcal{A}\) with conclusion \(\phi\); or
-\item \(\mathbb{K} \nc_{2} \phi\) iff there is an argument \(a \in \mathcal{A}\) with conclusion \(\phi\) that is in every selected set \(\mathcal{A}\).
-\end{itemize}
+On this basis, we define nonmonotonic \alert{consequence relations}.
+
 \end{frame}
 
 \begin{frame}[label={sec:org09f854e}]{Results}
