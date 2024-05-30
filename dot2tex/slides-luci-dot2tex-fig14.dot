@@ -1,0 +1,16 @@
+digraph {
+rankdir=LR; splines=true;
+node [style=os]; edge [style=att];
+a1 [style=ospale, texlbl="\afnode{a_1}{\mathsf{Cha}^f, \delta_1}{\mathsf{hunt}^b}"];
+a2 [style=ospale, texlbl="\afnode{a_2}{\mathsf{Cha}^f, \delta_1, \delta_2}{\neg\mathsf{dress}^b}"];
+b1 [style=ospale, texlbl="\afnodeflat{b_1}{\mathsf{ball}^f, \delta_3}{\mathsf{dress}^b}"];
+b2 [texlbl="\afnode{b_2}{\mathsf{ball}^f, \delta_3, \delta_4}{\mathsf{early}\mbox{-}\mathsf{home}^b}"];
+d1 [texlbl="\afnodeflat{d_1}{\mathsf{ball}^f}{\neg\delta_1}"];
+d2 [style=ospale, texlbl="\afnode{d_2}{\mathsf{Cha}^f, \delta_1, \delta_2}{\neg\delta_3}"];
+
+d1 -> d2;
+d1 -> a1;
+d1 -> a2;
+d2 -> b1;
+d2 -> b2;
+}

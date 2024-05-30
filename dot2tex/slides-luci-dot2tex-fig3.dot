@@ -1,0 +1,14 @@
+digraph {
+rankdir=LR; splines=true;
+node [style=os]; edge [style=att];
+d1 [style="alt={<2>{os}{ospale}}", texlbl="\afnodeno{d_1}{\mathcal{F}, \delta_1, \delta_2}{\neg \delta_3}"];
+d2 [style="alt={<3>{os}{ospale}}", texlbl="\afnodeno{d_2}{\mathcal{F}, \delta_1, \delta_3}{\neg \delta_2}"];
+// f1 [texlbl="\afnodenoo{f_1}{\mathcal{F}}{\mbox{scifi-fan}^b}"];
+// f2 [texlbl="\afnodenoo{f_2}{\mathcal{F}}{\mbox{environmentalist}^b}"];
+a1 [style="alt={<2->{os}{ospale}}", texlbl="\afnodeno{a_1}{\mathcal{F}, \delta_1}{\mbox{pro-science}^b}"];
+a2 [style="alt={<2>{os}{ospale}}", texlbl="\afnodeno{a_2}{\mathcal{F}, \delta_1, \delta_2}{\mbox{pro-nuclear}^b}"];
+b [style="alt={<3>{os}{ospale}}",texlbl="\afnodeno{b}{\mathcal{F}, \delta_3}{\neg \mbox{pro-nuclear}^b}"]
+d1 -> d2 -> d1;
+d1 -> b;
+d2 -> a2;
+}

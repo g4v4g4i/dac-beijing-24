@@ -1,0 +1,10 @@
+digraph {
+splines=true;
+node [style=os]; edge [style=att];
+h [texlbl="\afnodeHH{a}{\textsf{Monday}^f, \textsf{burger}^h, \delta_6}{\emptyset}{\neg\delta_2}"];
+b [texlbl="\afnodeHH{b}{\textsf{Lunch}^f, \delta_1, \dotsc, \delta_5}{s_1, s_2}{\textsf{cash}^b}"];
+s1 [texlbl="\afnodeHH{s_1}{\textsf{burger}^h, \delta_2}{\emptyset}{\textsf{cash}^b}"];
+// c [texlbl="\afnodeHH{c}{\textsf{Lunch}^f, \delta_1}{\emptyset}{(\textsf{burger} \vee \textsf{pizza})^b}"];
+h -> b;
+h -> s1;
+}

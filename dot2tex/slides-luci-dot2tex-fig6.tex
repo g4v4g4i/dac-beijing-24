@@ -1,0 +1,15 @@
+%%
+\node (d1) at (27.0bp,72.0bp) [alt={<2>{os}{ospale}}] {\afnodeno{d_1}{\mathcal{F}, \delta_1, \delta_2}{\neg \delta_3}};
+  \node (d2) at (117.0bp,72.0bp) [alt={<3>{os}{ospale}}] {\afnodeno{d_2}{\mathcal{F}, \delta_1, \delta_3}{\neg \delta_2}};
+  \node (d3) at (207.0bp,118.0bp) [alt={<4>{os}{ospale}}] {\afnodeno{d_3}{\mathcal{F}, \delta_2, \delta_3}{\neg \delta_1}};
+  \node (b) at (117.0bp,18.0bp) [alt={<3-4>{os}{ospale}}] {\afnodeno{b}{\mathcal{F}, \delta_3}{\neg \mbox{pro-nuclear}^b}};
+  \node (a2) at (297.0bp,72.0bp) [alt={<2>{os}{ospale}}] {\afnodeno{a_2}{\mathcal{F}, \delta_1, \delta_2}{\mbox{pro-nuclear}^b}};
+  \node (a1) at (297.0bp,126.0bp) [alt={<2-3>{os}{ospale}}] {\afnodeno{a_1}{\mathcal{F}, \delta_1}{\mbox{pro-science}^b}};
+  \draw [<->,att] (d1) ..controls (69.955bp,72.0bp) and (74.163bp,72.0bp)  .. (d2);
+  \draw [<->,att] (d1) ..controls (68.998bp,91.713bp) and (79.772bp,95.986bp)  .. (90.0bp,99.0bp) .. controls (115.67bp,106.56bp) and (145.48bp,111.36bp)  .. (d3);
+  \draw [->,att] (d1) ..controls (59.151bp,52.885bp) and (74.111bp,43.705bp)  .. (b);
+  \draw [<->,att] (d2) ..controls (157.28bp,92.535bp) and (166.38bp,97.292bp)  .. (d3);
+  \draw [->,att] (d2) ..controls (174.37bp,72.0bp) and (223.96bp,72.0bp)  .. (a2);
+  \draw [->,att] (d3) ..controls (241.65bp,121.06bp) and (250.26bp,121.84bp)  .. (a1);
+  \draw [->,att] (d3) ..controls (239.63bp,101.47bp) and (252.98bp,94.486bp)  .. (a2);
+%

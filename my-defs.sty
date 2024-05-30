@@ -1,0 +1,353 @@
+\ProvidesPackage{my-defs}
+\def\chline{\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}}
+\newcommand{\sys}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\eqdef}{=_{\textrm{df}}}
+\newcommand{\tiff}{~\textrm{iff}~}
+\newcommand{\krul}{{\sim}}
+\newcommand{\mif}{~\textrm{if}~}
+\newcommand{\mIf}{\textrm{If}~}
+\newcommand{\mthen}{~\textrm{then}~}
+\newcommand{\mor}{~\textrm{or}~}
+\newcommand{\mand}{~\textrm{and}~}
+\newcommand{\ra}{\ensuremath{\rightarrow}}
+\newcommand{\Ra}{\ensuremath{\Rightarrow}}
+
+\newcommand{\Ab}{\textrm{Ab}}
+\newcommand{\Cn}[2]{\ensuremath{\mathit{Cn}_{\mathbf{#1}}\left(#2\right)}}
+\newcommand{\Cnn}[3]{\ensuremath{\mathit{Cn}^{#1}_{\mathbf{#2}}\left(#3\right)}}
+\newcommand{\impl}{\supset}
+\newcommand{\Th}{\ensuremath{\textrm{Th}}}
+\newcommand{\Mod}{\ensuremath{\textrm{Mod}}}
+\newcommand{\Strasser}{Stra{\ss}er}
+\newcommand{\MM}[2]{\ensuremath{\mathcal{M}_{\sys{#1}}(#2)}}
+\renewcommand{\MM}[3][]{\ensuremath{\mathcal{M}^{#1}_{\sys{#2}}(#3)}}
+\newcommand{\inferc}[2]{\ensuremath{\vcenter{\infer{#1}{#2}}}}
+\newcommand{\OOs}{\ensuremath{\mathsf{O}}}
+\newcommand{\PPs}{\ensuremath{\mathsf{P}}}
+\newcommand{\Seselja}{\v{S}e\v{s}elja} \def\naive{na\"{\i}ve}
+\newcommand{\Aa}{\ensuremath{\mathcal{A}}}
+\newcommand{\Bb}{\ensuremath{\mathcal{B}}}
+\newcommand{\Uu}{\ensuremath{\mathcal{U}}}
+\newcommand{\Pp}{\ensuremath{\mathcal{P}}}
+\newcommand{\Vv}{\ensuremath{\mathcal{V}}}
+\newcommand{\Mm}{\ensuremath{\mathcal{M}}}
+\newcommand{\Cc}{\ensuremath{\mathcal{C}}}
+\newcommand{\Rr}{\ensuremath{\mathcal{R}}}
+\newcommand{\Ww}{\ensuremath{\mathcal{W}}}
+\newcommand{\Oo}{\ensuremath{\mathcal{O}}}
+\newcommand{\Xx}{\ensuremath{\mathcal{X}}}
+\newcommand{\Gg}{\ensuremath{\mathcal{G}}}
+\newcommand{\Hh}{\ensuremath{\mathcal{H}}}
+\newcommand{\Kk}{\ensuremath{\mathcal{K}}}
+\newcommand{\Nn}{\ensuremath{\mathcal{N}}}
+\newcommand{\Ff}{\ensuremath{\mathcal{F}}}
+\newcommand{\Ll}{\ensuremath{\mathcal{L}}}
+\newcommand{\Ii}{\ensuremath{\mathcal{I}}}
+\newcommand{\Ss}{\ensuremath{\mathcal{S}}}
+\newcommand{\Tt}{\ensuremath{\mathcal{T}}}
+\newcommand{\Ee}{\ensuremath{\mathcal{E}}}
+\newcommand{\mll}[1]{\ensuremath{\langle#1\rangle}}
+\newcommand{\vd}[1]{\ensuremath{\vdash_{\sys{#1}}}}
+\newcommand{\nvd}[1]{\ensuremath{\nvdash_{\sys{#1}}}}
+\newcommand{\Vd}[1]{\Vdash_{\sys{#1}}}
+\newcommand{\nVd}[1]{\not{\Vdash}_{\sys{#1}}}
+\newcommand{\cdic}[1]{#1\wedge\neg #1}
+% \newcommand{\cneg}{\check{\neg}} \newcommand{\csupset}{\check{\supset}} \newcommand{\cwedge}{\check{\wedge}}
+% \newcommand{\cequiv}{\check{\equiv}} \newcommand{\cvee}{\check{\vee}}
+% \newcommand{\cforall}{\check{\forall}} \newcommand{\cexists}{\check{\exists}} \newcommand{\cis}{\check{=}}
+%\newcommand{\sys}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\sysp}[2]{\ensuremath{{\mathbf{#1}^\mathit{#2}}}}
+%\newcommand{\Cn}[2]{\ensuremath{\mathit{Cn}_{\mathbf{#1}}(#2)}}
+\newcommand{\Dab}{\ensuremath{{\sf Dab}}}
+%\newcommand{\Ab}[1]{\ensuremath{\mathit{Ab}(#1)}}
+\newcommand{\mm}[1]{\models_{\sys{#1}}}
+\def\mdls{\mm}
+
+
+%%%%%%%%%%%%%%%%%%5 AL_defs
+\newboolean{ExtendedVersion}
+\newboolean{phd}
+\newcommand{\ExtV}[2][]{\ifthenelse{\boolean{ExtendedVersion}}{#2}{#1}}
+\newcommand{\CLuN}{\textbf{CLuN}}
+\newcommand{\CLuNs}{\textbf{CLuNs}}
+\newcommand{\ACLuNs}{\textbf{ACLuNs}}
+\newcommand{\ACLuN}{\textbf{ACLuN}}
+\newcommand{\LLLL}{\sys{LLL}}
+\newcommand{\ULL}{\textbf{ULL}}
+% \newcommand{\Dab}{\textrm{Dab}}
+% \newcommand{\eqdef}{=_{\textrm{df}}}
+%\newcommand{\RU}{\textrm{RU}}
+%\newcommand{\RC}{\textrm{RC}}
+%\newcommand{\PREM}{\textrm{PREM}}
+\newcommand{\CL}{\textrm{CL}}
+\newcommand{\AL}{\textrm{AL}}
+\newcommand{\PM}{\textrm{PM}}
+\newcommand{\MP}{\textrm{MP}}
+\newcommand{\EM}{{!}}
+% \newcommand{\RN}{\textrm{RN}}
+\newcommand{\RE}{\textrm{RE}}
+\newcommand{\RUM}{\textrm{RUM}}
+\newcommand{\UOR}{\textrm{UOR}}
+\newcommand{\AND}{\textrm{AND}}
+\newcommand{\RM}{\textrm{RM}}
+\newcommand{\ANDP}{\textrm{ANDP}}
+\newcommand{\INC}{\textrm{INC}}
+\newcommand{\Ker}{\textrm{Ker}}
+\newcommand{\Sup}{\textrm{Sup}}
+\newcommand{\wffs}{\textrm{wffs}}
+\newcommand{\wff}{\textrm{wff}}
+\newcommand{\DPM}{\textrm{DPM}}
+% \newcommand{\BO}{\textrm{BO}}
+% \newcommand{\ukrul}{{\check{\krul}}}
+% \newcommand{\uvee}{{\check{\vee}}}
+% \newcommand{\uimpl}{{\check{\supset}}}
+% \newcommand{\uwedge}{{\check{\wedge}}}
+% \newcommand{\uforall}{{\check{\forall}}}
+% \newcommand{\uexists}{{\check{\exists}}}
+% \newcommand{\ueq}{{\check{=}}}
+% \newcommand{\uequiv}{{\check{\equiv}}}
+\newcommand{\ukrul}{{\mathop\krul\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\uvee}{{\mathop\vee\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\uimpl}{{\mathop\supset\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\uwedge}{{\mathop\wedge\limits^{\raisebox{-1.5mm}[-2mm][-2mm]{\scriptsize{u}}}}}
+\newcommand{\uforall}{{\mathop\forall\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\uexists}{{\mathop\exists\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\ueq}{{\mathop =\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\uequiv}{{\mathop\equiv\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\akrul}{{\mathop\krul\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\avee}{{\mathop\vee\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\aimpl}{{\mathop\supset\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\awedge}{{\mathop\wedge\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\aforall}{{\mathop\forall\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\aexists}{{\mathop\exists\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\aeq}{{\mathop =\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\aequiv}{{\mathop\equiv\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+\newcommand{\cneg}{\ensuremath{\mathop{\check{\neg}}}}
+\newcommand{\cvee}{\mathop{\check{\vee}}}
+\newcommand{\cwedge}{\mathop{\check{\wedge}}}
+\newcommand{\csupset}{\mathop{\check{\supset}}}
+\newcommand{\cimpl}{\csupset}
+\newcommand{\cexists}{\check{\exists}}
+\newcommand{\cforall}{\check{\forall}}
+\newcommand{\cis}{\check{=}}
+\newcommand{\CLuC}{\textrm{CLuC}}
+\newcommand{\AMC}{\textrm{AMC}}
+\newcommand{\MC}{\textrm{MC}}
+\newcommand{\AP}{\textrm{AP}}
+%\newcommand{\Cn}{\textrm{Cn}}
+%\newcommand{\Cn}[2]{\ensuremath{\mathit{Cn}_{\mathbf{#1}}(#2)}}
+\newcommand{\SDL}{\textrm{SDL}}
+\newcommand{\RPM}{\textrm{RPM}}
+\newcommand{\PAND}{\textrm{PAND}}
+% \newcommand{\impl}{\supset}
+\newcommand{\nimpl}{\nsupset}
+\newcommand{\dotkrul}{\dot\krul}
+\newcommand{\dotvee}{\dot\vee}
+\newcommand{\dotwedge}{\dot\wedge}
+\newcommand{\dotimpl}{\dot\impl}
+\newcommand{\dotequiv}{\dot\equiv}
+\newcommand{\dotexists}{\dot\exists}
+\newcommand{\dotforall}{\dot\forall}
+\newcommand{\dotpi}{\dot\pi}
+\newcommand{\upi}{{\mathop \pi\limits^{\raisebox{-1.5mm}{\scriptsize{u}}}}}
+\newcommand{\api}{{\mathop \pi\limits^{\raisebox{-1.5mm}{\scriptsize{a}}}}}
+%\newcommand{\TODO}[1]{{\color{red}{\em \underline{TODO}}: #1}}
+\newcommand{\NOTE}[1]{{\color{blue}{\em {Note}}: #1}}
+\newcommand{\dBox}{{\Box\Box}}
+\newcommand{\mapa}[1]{\marginpar{\tiny#1}}
+%\newcommand{\nsubset}{\ensuremath{\not\subset}}
+\newcommand{\nc}{\ensuremath{\mathop{\mid\!\sim}}} % squiggly nm consequence relation#
+\newcommand{\nnc}{\ensuremath{\mathop{\mid\!\not\sim}}} 
+\newcommand{\ncn}{\ensuremath{\mathop{\sim\!\mid\!\sim}}}
+\newcommand{\imple}{\ensuremath{\mathop{\mid\!\equiv}}}
+\newcommand{\nimple}{\ensuremath{\mathop{\mid\!\nequiv}}}
+\newcommand{\sete}[2]{\left\{#1\colon#2\right\}} %set construction
+\newcommand{\sets}[1]{\left\{#1\right\}}
+\newcommand{\WLOG}{w.l.o.g.}
+\newcommand{\tupel}[2]{#1_1,\dots,#1_{#2}}
+\newcommand{\CD}[1]{\ensuremath{\left(#1\right)}}
+\newcommand{\CDbig}[1]{\ensuremath{\bigl(#1\bigr)}}
+\newcommand{\II}[1]{\ensuremath{\left|#1\right|}}
+
+\newcommand{\oneb}{\mbox{\ding{182}}}
+\newcommand{\twob}{\mbox{\ding{183}}}
+\newcommand{\threeb}{\mbox{\ding{184}}}
+\newcommand{\fourb}{\mbox{\ding{185}}}
+\newcommand{\fiveb}{\mbox{\ding{186}}}
+\newcommand{\sixb}{\mbox{\ding{187}}}
+\newcommand{\sevenb}{\mbox{\ding{188}}}
+\newcommand{\eightb}{\mbox{\ding{189}}}
+\newcommand{\nineb}{\mbox{\ding{190}}}
+\newcommand{\tenb}{\mbox{\ding{191}}}
+
+\newcommand{\onew}{\mbox{\ding{172}}}
+\newcommand{\twow}{\mbox{\ding{173}}}
+\newcommand{\threew}{\mbox{\ding{174}}}
+\newcommand{\fourw}{\mbox{\ding{175}}}
+\newcommand{\fivew}{\mbox{\ding{176}}}
+\newcommand{\sixw}{\mbox{\ding{177}}}
+\newcommand{\sevenw}{\mbox{\ding{178}}}
+\newcommand{\eightw}{\mbox{\ding{179}}}
+\newcommand{\ninew}{\mbox{\ding{180}}}
+\newcommand{\tenw}{\mbox{\ding{181}}}
+
+\newcommand{\honew}{\ensuremath{\hat{\mbox{\ding{172}}}}}
+\newcommand{\htwow}{\ensuremath{\hat{\mbox{\ding{173}}}}}
+\newcommand{\hthreew}{\ensuremath{\hat{\mbox{\ding{174}}}}}
+\newcommand{\hfourw}{\ensuremath{\hat{\mbox{\ding{175}}}}}
+\newcommand{\hfivew}{\ensuremath{\hat{\mbox{\ding{176}}}}}
+\newcommand{\hsixw}{\ensuremath{\hat{\mbox{\ding{177}}}}}
+\newcommand{\hsevenw}{\ensuremath{\hat{\mbox{\ding{178}}}}}
+\newcommand{\heightw}{\ensuremath{\hat{\mbox{\ding{179}}}}}
+\newcommand{\hninew}{\ensuremath{\hat{\mbox{\ding{180}}}}}
+\newcommand{\htenw}{\ensuremath{\hat{\mbox{\ding{181}}}}}
+
+% \newcommand{\ba}{\addtocounter{wcount}{1} \stave{\value{wcount}}}
+% \newcommand{\stave}[1]{
+%         \ifthenelse{\equal{#1}{1}}{\staveI}{}
+%         \ifthenelse{\equal{#1}{2}}{\staveII}{}
+% }
+
+\newcommand{\oo}[2][blue]{\noindent {\color{#1}\ding{46}~}{\color{Gray} #2}}
+\newcommand{\var}{\ensuremath{\textrm{var}}}
+\newcommand{\CPL}{\ensuremath{\mathbf{CPL}}}
+
+\newcommand{\wrt}{w.r.t.\ }
+\newcommand{\cp}{cp.\ }
+\newcommand{\resp}{resp.\ }
+% \newcommand{\ra}{\ensuremath{\rightarrow}}
+
+
+\newcommand{\todoi}[1]{\todo[inline]{#1}}
+\newcommand{\todoic}[1]{\todo[inline,color=blue!40,size=\small]{#1}}
+\newcommand{\todoc}[1]{\todo[color=blue!40,size=\small]{#1}}
+\newcommand{\todoid}[1]{\todo[inline,color=green!40,size=\small]{#1}}
+\newcommand{\todod}[1]{\todo[color=green!40,size=\small]{#1}}
+\newcommand{\todos}[1]{\todo[size=\footnotesize]{#1}}
+\newcommand{\ooTD}[1]{\setkeys{todonotes}{}%
+% Add to todo list
+\ifappendtolistoftodos%
+	\phantomsection%
+	\ifcolorinlistoftodos%
+		\addcontentsline{tdo}{todo}{\protect{%
+			\colorbox{\fillcolor}{\textcolor{\fillcolor}{\tiny i}} %
+			#1}}%
+	\else%
+		\addcontentsline{tdo}{todo}{\protect{#1}}%
+	\fi%
+\fi% 
+\oo[orange]{#1}}
+\newcommand{\ooTDd}[1]{\setkeys{todonotes}{color=green!40}%
+% Add to todo list
+\ifappendtolistoftodos%
+	\phantomsection%
+	\ifcolorinlistoftodos%
+		\addcontentsline{tdo}{todo}{\protect{%
+			\colorbox{\fillcolor}{\textcolor{\fillcolor}{\tiny i}} %
+			#1}}%
+	\else%
+		\addcontentsline{tdo}{todo}{\protect{#1}}%
+	\fi%
+\fi% 
+\oo[green]{#1}}
+\newcommand{\ooTDc}[1]{\setkeys{todonotes}{color=blue!40}%
+% Add to todo list
+\ifappendtolistoftodos%
+	\phantomsection%
+	\ifcolorinlistoftodos%
+		\addcontentsline{tdo}{todo}{\protect{%
+			\colorbox{\fillcolor}{\textcolor{\fillcolor}{\tiny i}} %
+			#1}}%
+	\else%
+		\addcontentsline{tdo}{todo}{\protect{#1}}%
+	\fi%
+\fi% 
+\oo[blue]{#1}}
+\newcommand{\GrayA}[1]{{\color{Gray} #1}}
+\newcommand{\GA}[1]{\GrayA{#1}}
+\newcommand{\NEW}[1]{\GrayA{#1}}
+\newcommand{\GrayAs}[1]{{\small \color{Gray}#1}}
+\newcommand{\temp}{temp}
+
+
+\newcommand{\OO}[3][]{\ensuremath{\mathsf{O}_{#1}(#2\mid #3)}}
+\newcommand{\PP}[3][]{\ensuremath{\mathsf{P}_{#1}(#2\mid #3)}}
+\newcommand{\OOi}[1][]{\ensuremath{\mathsf{O}_{#1}^{\mathsf{i}}}}
+\newcommand{\PPi}[1][]{\ensuremath{\mathsf{P}_{#1}^{\mathsf{i}}}}
+\newcommand{\OOp}[1][]{\ensuremath{\mathsf{O}_{#1}^{\mathsf{p}}}}
+\newcommand{\PPp}[1][]{\ensuremath{\mathsf{P}_{#1}^{\mathsf{p}}}}
+\newcommand{\OOx}[1][]{\ensuremath{\mathsf{O}_{#1}^{\mathsf{x}}}}
+\newcommand{\PPx}[1][]{\ensuremath{\mathsf{P}_{#1}^{\mathsf{x}}}}
+%\newcommand{\lt}{\ensuremath{\leadsto}}
+\newcommand{\lt}[1][]{\ensuremath{\mathrel{\vcenter{\offinterlineskip\hbox{$\leadsto$}\vskip-.2ex\hbox{\tiny$\hskip+1.8pt#1$}}}}}
+\newcommand{\nlt}{\ensuremath{\nleadsto}}
+\newcommand{\lts}{\ensuremath{\leadsto^\star}}
+
+\newcommand{\Pemp}{& \PREM & \emptyset}
+% \let\ov\=\comment
+% \let\endov\=\endcomment
+% \excludecomment{ov}
+% \excludecomment{ov1}
+% \excludecomment{ov2}
+% \excludecomment{ov3}
+% \excludecomment{ov4}
+% \excludecomment{ov5}
+% \excludecomment{ov6}
+\newcommand{\bb}[1]{\ensuremath{\bigl(#1\bigr)}}
+\newcommand{\phdph}{}
+\newcommand{\PHD}[2][]{\ifthenelse{\boolean{phd}}{\phdph#1}{#2}}
+\newcommand{\PHDD}[2]{\ifthenelse{\boolean{phd}}{#1}{#2}}
+
+
+\ifx \undefined \svhline \def\svhline{%
+  \noalign{\ifnum0=`}\fi\hrule \@height2\arrayrulewidth
+  \futurelet \reserved@a\@xhline} \fi
+
+\def\topline{\hline\noalign{\smallskip}}
+\def\thickline{\noalign{\smallskip}\svhline\noalign{\smallskip}} 
+\def\midline{\noalign{\smallskip}\hline\noalign{\smallskip}}
+
+\definecolor{shadecolor}{gray}{.85}%
+\definecolor{tintedcolor}{gray}{.80}%
+
+\ifx \undefined \svgraybox 
+\newenvironment{svgraybox}%
+       {%\fboxsep=12pt\relax
+        \begin{shaded*}%
+        % \list{}{\leftmargin=12pt\rightmargin=2\leftmargin\leftmargin=\z@\topsep=\z@\relax}%
+        % \expandafter\item\parindent=\parindent
+        % \hskip-\listparindent
+      }%
+       {% \endlist
+       \end{shaded*}}%
+\fi
+
+% \ifx \undefined \newdimen\svparindent
+% \setlength{\svparindent}{12\p@}
+% \parindent\svparindent
+% \setlength{\parskip}{\z@ \@plus \p@}
+% \setlength{\hfuzz}{2\p@}
+% \setlength{\arraycolsep}{1.5\p@}
+
+
+%%%%% new environments:
+\newenvironment{assume}{}{}
+\newenvironment{ltr}{}{}
+\newenvironment{rtl}{}{}
+\newenvironment{->}{}{}
+\newenvironment{<-}{}{}
+
+\newcommand{\crule}{\noindent\rule{\textwidth}{0.4pt}}
+
+\def\MCS{{\sf MCS}}
+
+% bussproofs
+\newcommand{\axs}[1]{\AXC{\ensuremath{#1}}} \newcommand{\llab}[1]{\ensuremath{\LeftLabel{\mbox{#1}}}}
+\newcommand*{\ir}[1]{\csname ir\romannumeral#1\endcsname}
+\newcommand*{\irl}[2]{\LeftLabel{\small #2}\csname ir\romannumeral#1\endcsname}
+\newcommand*{\irr}[2]{\RightLabel{\small #2}\csname ir\romannumeral#1\endcsname} 
+\newcommand*{\iri}[1]{\UIC{\ensuremath{#1}}}
+\newcommand*{\irii}[1]{\BIC{\ensuremath{#1}}}
+\newcommand*{\iriii}[1]{\TIC{\ensuremath{#1}}}
+\newcommand*{\iriv}[1]{\QuaternaryInfC{\ensuremath{#1}}}
+\newcommand*{\irv}[1]{\QuinaryInfC{\ensuremath{#1}}}
