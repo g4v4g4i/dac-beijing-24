@@ -307,7 +307,7 @@ In the following example we expect \textsf{read-philosophy} to be derivable; it 
 \end{frame}
 
 \begin{frame}
-We have two extension:
+We have two extensions:
 
 $$\{BNUer, scientist, artist, \alert{\neg read\text{-}philosophy}\}$$
 $$\{BNUer, artist, writer,\neg scientist, read\text{-}philosophy \}$$
@@ -1015,6 +1015,20 @@ With the OR rule:
 \]
 \end{frame}
 
+\begin{frame}{Other example}
+    Suppose our research group typically has for lunch burgers or pizza. 
+
+    When having burgers, we typically go to McBurger. {\it (But if that one is closed, there are other options for burgers ...)}
+
+    When having pizza, we typically go to Luigi's.
+
+    McBurger and Luigi's allow for cash payment.
+
+    On Mondays, McBurgers is typically closed.
+
+    Today is Monday and we're about to have lunch.
+\end{frame}
+
 \begin{frame}[label={sec:org840feb7}]{Similarly}
 \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
 
@@ -1119,8 +1133,8 @@ Inspiration: natural deduction.
 \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
 
 \node [] (v) {\( \vee \)};
-\node [ndnode, above = of v] (burger) {\( r \): {\sf burger}};
-\node [ndnode, below = of v] (pizza) {\( c \): {\sf pizza}};
+\node [ndnode, above = of v] (burger) {{\sf burger}};
+\node [ndnode, below = of v] (pizza) {{\sf pizza}};
 
 \begin{scope}[on background layer]
   \node [ndnode, fit={(burger) (v) (pizza)}] (vee) {};
@@ -1130,9 +1144,9 @@ Inspiration: natural deduction.
 
 \node [above = of vee, dnode] (Monday) {\sf Monday};
 
-\node [ndnode, right = of burger] (mc) {\( s \): {\sf McBurger}};
-\node [ndnode, right = of pizza] (luigi) {\( g \): {\sf Luigi}};
-\node [ndnode, below right = of mc] (cash) {\( g \) : {\sf cash}};
+\node [ndnode, right = of burger] (mc) {{\sf McBurger}};
+\node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
+\node [ndnode, below right = of mc] (cash) {{\sf cash}};
 
 \draw[darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
 \draw[darr] (burger) to node[above] {\( \delta_2 \)} (mc);
@@ -1155,14 +1169,232 @@ Inspiration: natural deduction.
 \DP
 \]
 \end{frame}
+\def\Hyp{\mathsf{Hyp}}
+\begin{frame}{Attacks and Defeats}
+    We define undercut attacks as before: 
+    \begin{center}$\Gamma \Rightarrow_\Omega \neg(\phi,\psi)$ \alert{attacks} $\Delta, (\phi,\psi) \Rightarrow_{\Lambda} \sigma$.
+    \end{center}
 
+    But now all attacks are successful. In particular, attacks by arguments that contain hypothetical assumptions that are not contained in the attacked argument fail. Successful attacks are called \alert{defeats}. 
+    
+    We let \alert{$\Hyp(\Gamma \Rightarrow_\Omega \psi)$} be the set of $h$-labeled formulas in $\Gamma$.
+
+    For instance, $\Hyp(\mathsf{burger}^h, \delta_2, \delta_4 \Rightarrow_\emptyset \mathsf{cash}^b) = \{ \mathsf{burger} \}$.
+
+    Then, 
+    \begin{center} ${\color{blue}s} : \Gamma \Rightarrow_\Omega \neg(\phi,\psi)$ \alert{defeats} ${\color{red}t} : \Delta, (\phi,\psi) \Rightarrow_\Lambda \sigma$, ~~ if $\Hyp({\color{blue}s}) \subseteq \Hyp({\color{red}t})$. \\
+    ${\color{blue}s} : \Gamma \Rightarrow_\Omega \neg(\phi,\psi)$ \alert{defeats} ${\color{blue} t}: \Delta \Rightarrow_\Lambda \sigma$, ~~ if it defeats some $t' \in \Lambda$.
+    \end{center}
+\end{frame}
+
+\begin{comment}
 \begin{frame}[label={sec:org013357e},fragile]{Argumentation with Hypothetical Arguments}
 	 Let $\mathsf{Sub}(t)$ for the sequents set in the subscript of $t$, and  $$\mathsf{Hyp}^*(s)=\{\phi^h\mid \phi^h\in\Omega^h\cap \mathsf{formula}(s)\},$$
 	$$\mathsf{Hyp}(s)=\mathsf{Hyp}^*(s)\cup \bigcup\{\mathsf{Hyp}^*(t)\mid s\in \mathsf{Sub}(t)\}.$$
 	\pause
 	We not only consider all \textit{h-assumptions} of $s$, but also all \textit{h-assumptions} of those arguments containing $s$.
 \end{frame}
+\end{comment}
 
+\begin{frame}{}
+    \def\lunch{\mathsf{lunch}} \def\d{\delta} \def\Monday{\mathsf{Monday}}
+    \def\burger{\mathsf{burger}} \def\pizza{\mathsf{pizza}} \def\cash{\mathsf{cash}}
+    \def\McBurger{\mathsf{McBurger}}
+    
+    \begin{tikzpicture}[scale=.7, every node/.style={ospale, scale=.8}, node distance=.6cm and .3cm]
+        \node [os] (a) {\afnodeflat{a}{\lunch^f,\d_1}{(\burger\vee\pizza)^b}};
+        \node [right = of a] (h2) {\afnodeflat{h_2}{\Monday^f,\burger^h,\d_2}{\neg\d_6}};
+        \node [os, below = of a] (b1) {\afnodeflat{b_1}{\Monday^f,\d_6}{\McBurger^b}};
+        \node [below = of b1] (g) {\afnodeflat{g}{\pizza^h,\d_3,\d_5}{\cash^b}};
+        \node [os, right = of b1] (b2) {\afnodeflat{b_2}{\Monday^f,\burger^h,\d_6}{\neg\d_2}};
+        \node [right = of b2] (h1) {\afnodeflat{h_1}{\burger^h,\d_2,\d_4}{\cash^b}};
+        \node [below = of b2] (c) {\afnodeH{c}{\lunch^f,\d_1,\d_2,\d_3,\d_4,\d_5}{h_1,g}{\cash^b}};
+
+        \draw[att,<->] (b2) to (h2);
+        \draw[att,->] (b2) to (c);
+        \draw[att,->, dotted] (h2) to (b1); 
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
+\node [] (v) {\( \vee \)};
+\node [ndnode, above = of v] (burger) {{\sf burger}};
+\node [ndnode, below = of v] (pizza) {{\sf pizza}};
+\begin{scope}[on background layer]
+  \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
+\end{scope}
+\node [dnode, left = of vee] (lunch) {\sf Lunch};
+\node [above = of vee, dnode] (Monday) {\sf Monday};
+\node [dnode, right = of burger] (mc) {{\sf McBurger}};
+\node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
+\node [ndnode, below right = of mc] (cash) {{\sf cash}};
+\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[darr] (burger) to node[above] {\( \delta_2 \)} (mc);
+\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
+\draw[darr] (mc.0) to [bend left] node[above] {\( \delta_4 \)} (cash);
+\draw[darr] (luigi.0) to [bend right] node[above] {\( \delta_5 \)} (cash);
+\draw[green,darr] (Monday.0) to [bend left] node[above,pos=.4] {\( \delta_6 \)} node [sloped] {\( \mid \)} (mc);
+\end{tikzpicture}  
+\end{frame}
+
+% C: It would be interesting to work here with a prioritized disjunction (Brewka?!): 
+% burger => McBurger | KingBurger 
+% burger => cash
+% KingBurger => \neg cash
+
+\begin{frame}{}
+    Compare to DAC with OR we may loose consequences, such as $\mathsf{cash}^b$ in this case.
+
+    In some cases we may also gain consequences, for instance $v$ in:
+
+    \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
+\node [] (v) {\( \vee \)};
+\node [ndnode, above = of v] (burger) {\( p \)};
+\node [ndnode, below = of v] (pizza) {\( q \)};
+\begin{scope}[on background layer]
+  \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
+\end{scope}
+\node [dnode, left = of vee] (lunch) {$f_1$};
+\node [above = 1.3cm of vee, dnode] (Monday) {$f_2$};
+\node [dnode, right = of burger] (mc) {\( u \)};
+\node [dnode, below right = of mc] (cash) {\( v \)};
+\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[darr] (burger) to node[above] {\( \delta_2 \)} (mc);
+\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (cash);
+\draw[darr] (mc.0) to node[above] {\( \delta_4 \)} node[sloped] {$\mid$} (cash);
+\draw[green,darr] (Monday.0) to [bend left] node[above,pos=.4] {\( \delta_6 \)} (cash);
+\draw[green,darr] (Monday) to node[above] {$\delta_5$}node[sloped] {$\mid$}  (mc);
+\end{tikzpicture}  
+\end{frame}
+
+\begin{frame}{Did we massage intuitions?}
+    Suppose our research group typically has for lunch burgers or pizza. 
+
+    When having burgers, we typically go to McBurger. {\it (But if that one is closed, there are other options for burgers ...)}
+
+    \alert{If we go for burgers and McBurger is closed, we typically go to KingBurger. At KingBurger we typically pay with credit card.}
+
+    When having pizza, we typically go to Luigi's.
+
+    McBurger and Luigi's allow for cash payment.
+
+    On Mondays, McBurgers is typically closed.
+
+    Today is Monday and we're about to have lunch.
+\end{frame}
+
+\begin{frame}{DAC with OR}
+     \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
+\node [] (v) {\( \vee \)};
+\node [ndnode, above = of v] (burger) {{\sf burger}};
+\node [ndnode, below = of v] (pizza) {{\sf pizza}};
+\begin{scope}[on background layer]
+  \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
+\end{scope}
+\node [dnode, left = of vee] (lunch) {\sf Lunch};
+\node [above = 1.3cm of lunch, dnode] (Monday) {\sf Monday};
+\node [above = 1.3cm of vee, dnode] (nMc) {$\neg$ {\sf McBurger}};
+\draw[-] (burger) to node[ospale] (wedge) {$\wedge$} (nMc);
+\node [ospale,right = of wedge] (king) {\sf KingBurger};
+\draw[darr] (wedge) to node[above] {$\delta_2$} (king);
+\node [ospale,right = of king] (ncash) {$\neg$ {\sf cash}};
+\node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
+\node [dnode, above right = of luigi] (cash) {{\sf cash}};
+\node [ndnode, right = of burger] (mc) {\sf McBurger};
+\draw[darr] (burger) to node[above] {$\delta_7$} (mc);
+\draw[darr] (mc) to node[above] {$\delta_8$} (cash);
+\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
+\draw[darr] (king) to node[above] {\( \delta_4 \)} (ncash);
+\draw[darr] (luigi) to node[above] {\( \delta_5 \)} (cash);
+\draw[darr] (Monday) to node[above] {$\delta_6$} (nMc);
+\draw[darr,red] (vee) to (cash);
+\end{tikzpicture}
+
+So, ${\sf cash}$ is a consequence.
+\end{frame}
+
+\begin{frame}{HDAC}
+\begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
+\node [] (v) {\( \vee \)};
+\node [ndnode, above = of v] (burger) {{\sf burger}};
+\node [ndnode, below = of v] (pizza) {{\sf pizza}};
+\begin{scope}[on background layer]
+  \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
+\end{scope}
+\node [dnode, left = of vee] (lunch) {\sf Lunch};
+\node [above = 1.3cm of lunch, dnode] (Monday) {\sf Monday};
+\node [above = 1.3cm of vee, dnode] (nMc) {$\neg$ {\sf McBurger}};
+\draw[-] (burger) to node[ospale] (wedge) {$\wedge$} (nMc);
+\node [ospale,right = of wedge] (king) {\sf KingBurger};
+\draw[darr] (wedge) to node[above] {$\delta_2$} (king);
+\node [ospale,right = of king] (ncash) {$\neg$ {\sf cash}};
+\node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
+\node [dnode, above right = of luigi] (cash) {{\sf cash}};
+\node [ndnode, right = of burger] (mc) {\sf McBurger};
+\draw[darr] (burger) to node[above] {$\delta_7$} (mc);
+\draw[darr] (mc) to node[above] {$\delta_8$} (cash);
+\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
+\draw[darr] (king) to node[above] {\( \delta_4 \)} (ncash);
+\draw[darr] (luigi) to node[above] {\( \delta_5 \)} (cash);
+\draw[darr] (Monday) to node[above] {$\delta_6$} (nMc);
+% \draw[darr,red] (vee) to (cash);
+\end{tikzpicture}
+
+We get neither ${\sf cash}$ nor $\neg {\sf cash}$ as a consequence, as expected.
+\end{frame}
+
+\begin{frame}{Hypothetical consequences}
+    $\mathbb{K} \nc_1 \alert{(\Pi \leadsto \psi)}$ iff in every stable set $\mathcal{A}$ there is an argument $a$ with $\Hyp(a) \subseteq \Pi$ with conclusion $\psi$. \hfill [similar for $\nc_2$]
+
+    In our example we have the following hypothetical consequences: 
+
+    \medskip
+    
+    \begin{columns}
+    \begin{column}{.3\textwidth}
+    \begin{itemize}
+        \item<2-> $\alert<2-3>{\sf pizza} \leadsto {\sf Luigi}$
+        \item<3-> $\alert<3>{\sf pizza} \leadsto {\sf cash}$
+        \item<4-> $\alert<4-5>{\sf burger} \leadsto {\sf KingBurger}$
+        \item<5-> $\alert<5>{\sf burger} \leadsto \neg{\sf cash}$ 
+    \end{itemize}
+    \end{column}
+
+\begin{column}{.7\textwidth}
+\scalebox{1}{
+    \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
+\node [] (v) {\( \vee \)};
+\node [ndnode, above = of v] (burger) {\alert<4-5>{\sf burger}};
+\node [ndnode, below = of v] (pizza) {\alert<2-3>{\sf pizza}};
+\begin{scope}[on background layer]
+  \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
+\end{scope}
+\node [dnode, left = of vee] (lunch) {\sf Lunch};
+\node [above = 1.3cm of lunch, dnode] (Monday) {\sf Monday};
+\node [above = 1.3cm of vee, dnode] (nMc) {$\neg$ {\sf McBurger}};
+\draw[-] (burger) to node[ospale] (wedge) {$\wedge$} (nMc);
+\node [ospale,right = of wedge] (king) {\alert<4-5>{\sf KingBurger}};
+\draw[darr] (wedge) to node[above] {$\delta_2$} (king);
+\node [ospale,right = of king] (ncash) {\alert<3>{\alert<5>{$\neg$ {\sf cash}}}};
+\node [ndnode, right = of pizza] (luigi) {\alert<3>{\sf Luigi}};
+\node [dnode, above right = of luigi] (cash) {{\sf cash}};
+\node [ndnode, right = of burger] (mc) {\sf McBurger};
+\draw[darr] (burger) to node[above] {$\delta_7$} (mc);
+\draw[darr] (mc) to node[above] {$\delta_8$} (cash);
+\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
+\draw[darr] (king) to node[above] {\( \delta_4 \)} (ncash);
+\draw[darr] (luigi) to node[above] {\( \delta_5 \)} (cash);
+\draw[darr] (Monday) to node[above] {$\delta_6$} (nMc);
+% \draw[darr,red] (vee) to (cash);
+\end{tikzpicture}
+}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{comment}
 \begin{frame}[label={sec:org013357e},fragile]{}
 \begin{figure}
 		\centering
@@ -1253,6 +1485,8 @@ Condition 3:	$\forall t\in\mathsf{Arg}$, if $(\varphi,\psi)\in\mathsf{Norms}(t)$
 	
 	There exists an stable extension $\mathscr{E}\subseteq\mathsf{Arg}$ concluding $v$, but there is only one stable extension $\mathscr{E}^d\subseteq\mathsf{Arg}^d$concluding $\neg v$.
 \end{frame}
+
+\end{comment}
 
 \begin{frame}[label={sec:org162f27b},standout]{}
 Explanations
