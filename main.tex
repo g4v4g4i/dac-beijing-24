@@ -115,7 +115,7 @@ alt/.code args={<#1>#2#3}{%
 % \usetheme{Arguelles}
 \usetheme{metropolis}
 \author{Christian Straßer, Zheng Zhou, joint work with Kees van Berkel}
-\date{May 31, 2024 (Lecture at Beijing Normal University)}
+\date{May 31, 2024 (Talk at Beijing Normal University)}
 \title{Unifying Default Reasoning by Logical Argumentation}
 \institute[]{\small Institute Philosophy II \\ Logic in Philosophy and Artificial Intelligence Group \\ The Reasoning Rationality and Science Group \\ Ruhr University Bochum \\ \\School of Philosophy\\ Beijing Normal University}
 
@@ -622,6 +622,7 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
 \draw[darr] (env.0) to node[above] {\( \delta_3 \)} (negnuc);
 \end{tikzpicture}  
     
+\begin{argbox}
     \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and 1cm]
         \node (a) {\afnodeflat{a}{\Wilma, \sigma_1, \sigma_2, \deltaone, \deltatwo}{\neg\deltathree}};
         \node[below = .8cm of a] (b) {\afnodeflat{b}{\Wilma, \sigma_1,\sigma_2, \deltaone, \deltathree}{\neg\deltatwo}};
@@ -633,6 +634,7 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
         \draw[att, <->] (a) to (b);
         \draw[att, ->] (b) to (e);
     \end{tikzpicture}
+    \end{argbox}
 \end{frame}
 
 \begin{frame}{What arguments to select: argumentation semantics}
@@ -645,6 +647,8 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
     In our example we have two stable sets:
     \begin{columns}
         \begin{column}{.5\textwidth}
+             \begin{argbox}
+             \scalebox{.89}{
              \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
         \node[os] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
         \node[below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
@@ -655,9 +659,12 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
         \draw[att,->] (a) to (c);
         \draw[att, <->] (a) to (b);
         \draw[att, ->] (b) to (e);
-    \end{tikzpicture}
+    \end{tikzpicture}}
+    \end{argbox}
         \end{column} \pause
         \begin{column}{.5\textwidth}
+        \begin{argbox}
+        \scalebox{.89}{
             \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
         \node[] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
         \node[os,below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
@@ -668,7 +675,8 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
         \draw[att,->] (a) to (c);
         \draw[att, <->] (a) to (b);
         \draw[att, ->] (b) to (e);
-    \end{tikzpicture}
+    \end{tikzpicture}}
+    \end{argbox}
         \end{column}
     \end{columns}
 \end{frame}
@@ -685,11 +693,12 @@ DAC calculi (default argumentation calculi)\footnote{\ldots{} formerly known as 
 \end{itemize}
 
 \pause
-In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
+In our example: $\mathbb{K} \nc_{1/2} \alert{{\sf pro\mbox{-}science}}$.
 
 \scalebox{.8}{
  \begin{columns}
-        \begin{column}{.6\textwidth}
+        \begin{column}{.55\textwidth}
+        \begin{argbox}
              \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
         \node[os] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
         \node[below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
@@ -701,8 +710,10 @@ In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
         \draw[att, <->] (a) to (b);
         \draw[att, ->] (b) to (e);
     \end{tikzpicture}
+    \end{argbox}
         \end{column} 
-        \begin{column}{.4\textwidth}
+        \begin{column}{.55\textwidth}
+        \begin{argbox}
             \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .5cm]
         \node[] (a) {\afnodeflat{a}{\ldots, \deltaone, \deltatwo}{\neg\deltathree}};
         \node[os,below = .8cm of a] (b) {\afnodeflat{b}{\ldots, \deltaone, \deltathree}{\neg\deltatwo}};
@@ -714,6 +725,7 @@ In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
         \draw[att, <->] (a) to (b);
         \draw[att, ->] (b) to (e);
     \end{tikzpicture}
+    \end{argbox}
         \end{column}
     \end{columns}
     }
@@ -737,7 +749,7 @@ In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
 \draw[purple,darr] (prosci.0) to node[above] {\( \delta_2 \)} (nuclear);
 \draw[purple,darr] (env.0) to node[above] {\( \delta_3 \)} (negnuc);
 \end{tikzpicture}  
-    
+    \begin{argbox}
     \begin{tikzpicture}[scale=.6, every node/.style={scale=.9,ospale}, node distance = .5cm and .7cm]
         \node (a) {\afnodeflat{a}{\Wilma, \sigma_1, \sigma_2, \deltaone, \deltatwo}{\neg\deltathree}};
 \node[os, below = .7cm of a] (f) {\afnodeflat{f}{\Wilma,\sigma_1, \deltatwo, \deltathree}{\neg\deltaone}};
@@ -754,6 +766,7 @@ In our example: $\mathbb{K} \nc_{1/2} {\sf pro\mbox{-}science}$.
         \draw[att, ->] (f) to (d);
         \draw[att, ->] (f) to (e);
     \end{tikzpicture}
+    \end{argbox}
 \end{frame}
 
 
@@ -798,12 +811,16 @@ Let's sum up our 4 steps!
 
 \end{frame}
 
+\begin{frame}[standout]{}
+    Some results
+\end{frame}
+
 \begin{frame}[label={sec:org09f854e}]{Results}
 \begin{itemize}
-\item DAC with Def2 and without OR: every stable sets corresponds to a \alert{Reiter Default} extension and vice versa. \(\nc_1\) is Reiter's sceptical consequence. \pause
-\item DAC with Def1: all 8 standard variants of (constrained) \alert{input-output logic} can be characterized analogously. \pause
-\item We obtain a natural variant for \alert{default logic} with disjunction (see below). \pause
-\item We obtain \alert{cautious variants} of default logic and IO-logic when opting for grounded argumentation semantics. \pause
+\item DAC with Def2 and without OR: every stable sets corresponds to a \alert{Reiter Default} extension and vice versa. \(\nc_1\) is Reiter's sceptical consequence. \hfill [{\it greedy reasoning}] \pause
+\item DAC with Def1: all 8 standard variants of (constrained) \alert{input-output logic} can be characterized analogously. \hfill [{\it reasoning with maxi-con sets}] \pause
+\item We obtain extensions of \alert{default logic for reasoning with disjunctions} (see below). \pause
+\item We obtain \alert{cautious variants} of default logic and IO-logic when opting for grounded argumentation semantics.  \pause
 \item The result is \alert{unifying}: only a minor twist in the proof-theory (Def1 vs Def2) leads to a Gestalt-switch in representation.
 \end{itemize}
 \end{frame}
@@ -856,7 +873,7 @@ Our disjunctive variant:
 \section{Disjunctive Reasoning}
 \label{sec:orgd76d5a1}
 
-\begin{frame}[label={sec:orgb710fd7},standout]{More on disjunctions and hypothetical reasoning}
+\begin{frame}[label={sec:orgb710fd7},standout]{}
 More on disjunctions and hypothetical reasoning \ldots{}
 
 \vspace{2cm}
@@ -910,6 +927,8 @@ More on disjunctions and hypothetical reasoning \ldots{}
 
 \pause
 
+\begin{argbox}
+\scalebox{.9}{
 \[
 \axs{\mathsf{burger} \Rightarrow \mathsf{McBurger}}
 \axs{\mathsf{McBurger} \Rightarrow \mathsf{cash}}
@@ -919,7 +938,8 @@ More on disjunctions and hypothetical reasoning \ldots{}
 \irl2{Cut}{\mathsf{pizza} \Rightarrow \mathsf{cash}}
 \irl2{OR}{\alert{(\mathsf{burger} \vee \mathsf{pizza}) \Rightarrow \mathsf{cash}}}
 \DP
-\]
+\]}
+\end{argbox}
 \end{frame}
 
 \begin{frame}{Solution 1}
@@ -927,13 +947,13 @@ More on disjunctions and hypothetical reasoning \ldots{}
 
 Disjunctive Detachment:
     \begin{align*}
-     \infer[\bf DisDet]{(\bigvee_{i=1}^n\alert{\phi_i})^{f}, \langle (\alert{\phi_{i}}, {\color{blue}\psi_i})^d \rangle_{i=1}^n \Rightarrow (\bigvee_{i=1}^n {\color{blue}\psi_i})^o} {\vphantom{M}}
+     \infer[\bf DisDet]{(\bigvee_{i=1}^n\alert{\phi_i})^{f}, \langle (\alert{\phi_{i}}, {\color{blue}\psi_i}) \rangle_{i=1}^n \Rightarrow (\bigvee_{i=1}^n {\color{blue}\psi_i})^b} {\vphantom{M}}
      \end{align*}
 \pause 
 
      Disjunctive Defeat:
      \begin{align*}
-     \infer[\bf DisDef]{(\bigvee_{i=1}^n \phi_i)^f, \langle (\phi_{i}, \psi_i) \rangle_{i=2}^n, \alert{\neg\psi_1}^b \Rightarrow \neg(\phi_1, \alert{\psi_1})^d}{\vphantom{M}}
+     \infer[\bf DisDef]{(\bigvee_{i=1}^n \phi_i)^f, \langle (\phi_{i}, \psi_i) \rangle_{i=2}^n, \alert{\neg\psi_1}^b \Rightarrow \neg(\phi_1, \alert{\psi_1})}{\vphantom{M}}
     \end{align*}
 \end{frame}
 
@@ -979,19 +999,20 @@ Disjunctive Detachment:
 \def\cash{{\sf cash}}
 \def\Monday{{\sf Mon}}
 
-\scalebox{.9}{
+\begin{argbox}
+\scalebox{.8}{
     \[
+    \axs{\seqq{\Lunch^f, \d_1}{(\burger \vee \pizza)^b}}
     \axs{}
     \irr1{DisDet}{\seqq{(\mc \vee {\sf Lui})^b, \d_4, \d_5}{\cash^b}}
     \axs{}
     \irr1{DisDet}{\seqq{(\burger \vee \pizza)^b, \d_2, \d_3}{(\mc \vee {\sf Lui})^b}}
-    \irl2{}{\seqq{(\burger \vee \pizza)^b, \d_2, \d_3, \d_4, \d_5}{\cash^b}}
-    \axs{\seqq{\Lunch^f, \d_1}{(\burger \vee \pizza)^b}}
-    \irl2{}{\seqq{\Lunch^f, \d_1,\ldots,\d_5}{\cash^b}}
+    \irr2{Cut}{\seqq{(\burger \vee \pizza)^b, \d_2, \d_3, \d_4, \d_5}{\cash^b}}
+    \irl2{Cut}{\seqq{\Lunch^f, \d_1,\ldots,\d_5}{\cash^b}}
     \DP
     \]
 }
-    
+\end{argbox}    
 \end{frame}
 
 \begin{frame}{In the example}
@@ -1035,18 +1056,19 @@ Disjunctive Detachment:
 \def\cash{{\sf cash}}
 \def\Monday{{\sf Mon}}
 
+\begin{argbox}
 \scalebox{.9}{
     \[
-    \axs{}
-    \irr1{DisDef}{\seqq{(\burger \vee \pizza)^b, \neg \mc^b, \d_3}{\neg \d_2}}
-    \axs{\seqq{\Monday^f, \d_6}{\neg \mc^b}}
-    \irr2{Cut}{\seqq{\Monday^f, (\burger\vee\pizza)^b, \d_3, \d_6}{\neg \d_2}}
     \axs{\seqq{\Lunch^f, \d_1}{(\burger \vee \pizza)^b}}
+    \axs{\seqq{\Monday^f, \d_6}{\neg \mc^b}}
+    \axs{}
+    \irl1{DisDef}{\seqq{(\burger \vee \pizza)^b, \neg \mc^b, \d_3}{\neg \d_2}}
+    \irl2{Cut}{\seqq{\Monday^f, (\burger\vee\pizza)^b, \d_3, \d_6}{\neg \d_2}}
     \irl2{Cut}{\seqq{\Lunch^f, \Monday^f, \d_1, \d_3, \d_6}{\neg\d_2}}
     \DP
     \]
 }
-    
+\end{argbox}    
 \end{frame}
 
 \begin{frame}{In the example}
@@ -1083,20 +1105,23 @@ Disjunctive Detachment:
 \end{tikzpicture}  
 
 \medskip
-
+\begin{argbox}
     \begin{tikzpicture}[every node/.style={ospale}, node distance = .5cm and .5cm]
     \node [os] (a) {\afnodeflat{a}{\Lunch^f,\d_1}{(\burger\vee \pizza)^b}};
     \node [right = of a] (b) {\afnodeflat{b}{\Lunch^f,\d_1,\d_2,\d_3,\d_4,\d_5}{\cash^b}};
     \node [os, below = of a] (c) {\afnodeflat{c}{\Monday^f,\d_6}{\neg \mc}};
-    \node [os, right = of c] (d) {\afnodeflat{d}{\Lunch^f, \Monday^f, \d_1, \d_6}{\neg \d_2}};
+    \node [os, right = of c] (d) {\afnodeflat{d}{\Lunch^f, \Monday^f, \d_1, \d_3 \d_6}{\neg \d_2}};
 
     \draw[att,->] (d) to (b);
     
     \end{tikzpicture}
+    \end{argbox}
 \end{frame}
 
 \begin{frame}{Disjunctive Default Logic}
-    In a forthcoming paper we define a version of Reiter's greedy algorithm and show that every default extension corresponds to a stable set and vice versa.
+    In a forthcoming paper we define a version of Reiter's greedy algorithm for disjunctive reasoning. We show that every default extension corresponds to a stable set and vice versa.
+
+    This generalizes our characterization of Reiter's default logic and demonstrates the merits of embedding Reiter's logic in a principles proof-theoretic approach.
 
     [ask for details!]
 \end{frame}
@@ -1122,9 +1147,13 @@ Disjunctive Detachment:
 \draw[darr] (env.0) to (cgmo);
 \end{tikzpicture}  
 \pause 
+
 Here we should stay \alert{agnostic} about \textsf{pro-gmo}.
 \end{frame}
 
+\begin{frame}[standout]{}
+But, \ldots
+\end{frame}
 
 \begin{frame}[label={sec:org5ae42de},fragile]{Problematic Example}
 \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
@@ -1142,7 +1171,7 @@ Here we should stay \alert{agnostic} about \textsf{pro-gmo}.
 
 \node [ndnode, below right = of rat] (env)   {\( e \) : {\sf environmentalist}};
 \node [ndnode, right = of sci] (progmo) {\( g \): {\sf pro-gmo}};
-\node [ndnode, right = of env] (cgmo) {\( \neg g \) : {\sf \( \neg \)pro-gmo}};
+\node [dnode, right = of env] (cgmo) {\( \neg g \) : {\sf \( \neg \)pro-gmo}};
 
 \draw[sarr] (Anne) to (vee);
 \draw[darr] (rat) to (sci.180);
@@ -1157,6 +1186,7 @@ Here we should stay \alert{agnostic} about \textsf{pro-gmo}.
 \pause
 With the OR rule:
 
+\begin{argbox}
 \[
 \axs{r \Rightarrow e}
 \axs{e \Rightarrow \neg g}
@@ -1165,6 +1195,7 @@ With the OR rule:
 \irl2{OR}{\alert{(r \vee c) \Rightarrow \neg g}}
 \DP
 \]
+\end{argbox}
 \end{frame}
 
 \begin{frame}{Similarly with our first solution}
@@ -1184,7 +1215,7 @@ With the OR rule:
 
 \node [ndnode, below right = of rat] (env)   {\( e \) : {\sf environmentalist}};
 \node [ndnode, right = of sci] (progmo) {\( g \): {\sf pro-gmo}};
-\node [ndnode, right = of env] (cgmo) {\( \neg g \) : {\sf \( \neg \)pro-gmo}};
+\node [dnode, right = of env] (cgmo) {\( \neg g \) : {\sf \( \neg \)pro-gmo}};
 
 \draw[purple,sarr] (Anne) to node[above]{$\sigma$} (vee);
 \draw[darr] (rat) to node[above]{$\d_1$} (sci.180);
@@ -1205,7 +1236,7 @@ but we don't have a counter-argument!
 \begin{frame}[label={sec:org6b86e0c}]{Solution 2 (work in progress)}
 We need to track our assumptions when reasoning with cases!
 
-Inspiration: natural deduction.
+Inspiration: \alert{natural deduction}.
 
 \vspace{-.5cm}
 
@@ -1223,7 +1254,7 @@ Inspiration: natural deduction.
 \axs{\array{c} \phantom{M} \\ \phantom{M} \\ \phantom{M} \\ \phantom{M} \\ \phi \vee \psi \endarray}
 \axs{\substack{\mbox{hyp.~arg.~1} \\ \mbox{\it possible} \\ \mbox{\it defeat}} \left\{ \array{c} \phi \\ \Downarrow \\ \vdots \\ \Downarrow \\ \gamma \endarray \right.}
 \axs{\left. \array{c} \psi \\ \Downarrow \\ \vdots \\ \Downarrow \\ \gamma \endarray \right\} \substack{\mbox{hyp.~arg.~2} \\ \mbox{\it possible} \\ \mbox{\it defeat}} }
-\irl3{RbC}{\gamma}
+\irl3{(defeasible) RbC}{\gamma}
 \DP
 \]
 \end{frame}
@@ -1278,26 +1309,27 @@ Inspiration: natural deduction.
 \node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
 \node [ndnode, below right = of mc] (cash) {{\sf cash}};
 
-\draw[darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
-\draw[darr] (burger) to node[above] {\( \delta_2 \)} (mc);
-\draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
-\draw[darr] (mc.0) to [bend left] node[above] {\( \delta_4 \)} (cash);
-\draw[darr] (luigi.0) to [bend right] node[above] {\( \delta_5 \)} (cash);
+\draw[purple, darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[purple, darr] (burger) to node[above] {\( \delta_2 \)} (mc);
+\draw[purple, darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
+\draw[purple, darr] (mc.0) to [bend left] node[above] {\( \delta_4 \)} (cash);
+\draw[purple, darr] (luigi.0) to [bend right] node[above] {\( \delta_5 \)} (cash);
 
 \draw[darr] (Monday.0) to [bend left] node[above,pos=.4] {\( \delta_6 \)} node [sloped] {\( \mid \)} (mc);
 \end{tikzpicture}  
 
-
+\begin{argbox}
 \[
 \axs{\mathsf{burger}^f, \delta_2, \delta_4 \Rightarrow_{\emptyset}\mathsf{cash}^b}
 \irl1{HDet1}{s_1: \mathsf{burger}^h, \delta_2, \delta_4 \Rightarrow_{\emptyset} \mathsf{cash}^b}
 \axs{\mathsf{pizza}^f, \delta_3, \delta_5 \Rightarrow_{\emptyset} \mathsf{cash}^b}
 \irl1{HDet1}{s_2: \mathsf{pizza}^h, \delta_3, \delta_5 \Rightarrow_{\emptyset} \mathsf{cash}^b}
-\irl2{HOR}{(\mathsf{burger} \vee \mathsf{pizza})^h, \delta_2, \delta_4 \Rightarrow_{s_1, s_2} \mathsf{cash}^b}
-\irl1{HDet2}{\array{c}(\mathsf{burger} \vee \mathsf{pizza})^b, \delta_2, \delta_4 \Rightarrow_{s_1, s_2} \mathsf{cash}^b \\ \vdots \endarray}
+\irl2{HOR}{(\mathsf{burger} \vee \mathsf{pizza})^h, \delta_2, \ldots, \delta_5 \Rightarrow_{s_1, s_2} \mathsf{cash}^b}
+\irl1{HDet2}{\array{c}(\mathsf{burger} \vee \mathsf{pizza})^b, \delta_2, \ldots, \delta_5 \Rightarrow_{s_1, s_2} \mathsf{cash}^b \\ \vdots \endarray}
 \irl1{}{\mathsf{Lunch}^{f}, \delta_1, \dotsc, \delta_5 \Rightarrow_{s_{1},s_2} \mathsf{cash}^b}
 \DP
 \]
+\end{argbox}
 \end{frame}
 \def\Hyp{\mathsf{Hyp}}
 \begin{frame}{Attacks and Defeats}
@@ -1335,7 +1367,8 @@ Inspiration: natural deduction.
     \def\lunch{\mathsf{lunch}} \def\d{\delta} \def\Monday{\mathsf{Monday}}
     \def\burger{\mathsf{burger}} \def\pizza{\mathsf{pizza}} \def\cash{\mathsf{cash}}
     \def\McBurger{\mathsf{McBurger}}
-    
+
+    \begin{argbox}
     \begin{tikzpicture}[scale=.7, every node/.style={ospale, scale=.8}, node distance=.6cm and .5cm]
         \node [os] (a) {\afnodeflat{a}{\lunch^f,\d_1}{(\burger\vee\pizza)^b}};
         \node [right = of a] (h2) {\afnodeflat{h_2}{\Monday^f,\burger^h,\d_2}{\neg\d_6}};
@@ -1350,7 +1383,7 @@ Inspiration: natural deduction.
         \draw[att,->] (b2) to (h1);
         \draw[att,->, dotted] (h2) to (b1); 
     \end{tikzpicture}
-
+\end{argbox}
     \medskip
 
     \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
@@ -1381,6 +1414,7 @@ Inspiration: natural deduction.
 
 \begin{frame}{Back to our problematic example for Solution 1}
     \def\d{\delta} \def\Anne{\mathsf{An}}
+    \scalebox{.9}{
     \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .1cm and 1.8cm]
 \node [dnode] (Anne) {\( \Anne \): {\sf Anne}};
 
@@ -1404,8 +1438,9 @@ Inspiration: natural deduction.
 \draw[darr] (sci) to node[above]{$\d_3$} (progmo);
 \draw[darr] (env.0) to node[above]{$\d_4$} (cgmo);
 \draw[darr] (cre.0) to [bend right] node[above] {$\d_5$} (cgmo);
-\end{tikzpicture}  
+\end{tikzpicture} } 
 
+\begin{argbox}
 \begin{tikzpicture}[every node/.style={ospale}, node distance = .4cm and .5cm]
     \node (a) {\afnodeH{a}{\Anne^f, \sigma, \d_2, \d_4, \d_5}{h_1,h_2}{\neg g^b}};
     \node [right = of a] (h1) {\afnodeH{h_1}{r^h, \d_2, \d_4}{\emptyset}{\neg g^b}};
@@ -1419,10 +1454,12 @@ Inspiration: natural deduction.
     \draw[att,->] (h3) to (h1);
     
 \end{tikzpicture}
+\end{argbox}
 \end{frame}
 
 \begin{frame}{Back to our problematic example for Solution 1}
     \def\d{\delta} \def\Anne{\mathsf{An}}
+    \scalebox{.9}{
     \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .1cm and 1.8cm]
 \node [dnode] (Anne) {\( \Anne \): {\sf Anne}};
 
@@ -1446,8 +1483,9 @@ Inspiration: natural deduction.
 \draw[darr] (sci) to node[above]{$\d_3$} (progmo);
 \draw[darr] (env.0) to node[above]{$\d_4$} (cgmo);
 \draw[darr] (cre.0) to [bend right] node[above] {$\d_5$} (cgmo);
-\end{tikzpicture}  
+\end{tikzpicture} }
 
+\begin{argbox}
 \begin{tikzpicture}[every node/.style={ospale}, node distance = .4cm and .5cm]
     \node [os] (a) {\afnodeH{a}{\Anne^f, \sigma, \d_2, \d_4, \d_5}{h_1,h_2}{\neg g^b}};
     \node [os, right = of a] (h1) {\afnodeH{h_1}{r^h, \d_2, \d_4}{\emptyset}{\neg g^b}};
@@ -1461,6 +1499,7 @@ Inspiration: natural deduction.
     \draw[att,->] (h3) to (h1);
     
 \end{tikzpicture}
+\end{argbox}
 \end{frame}
 
 \begin{frame}{}
@@ -1542,7 +1581,7 @@ Is this as desired?
 So, ${\sf cash}$ is a consequence.
 \end{frame}
 
-\begin{frame}{HDAC}
+\begin{frame}{DAC with Hypothetical Arguments}
 \begin{tikzpicture}[scale=.8, every node/.style={scale=.8, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
 \node [] (v) {\( \vee \)};
 \node [ndnode, above = of v] (burger) {{\sf burger}};
@@ -1562,11 +1601,11 @@ So, ${\sf cash}$ is a consequence.
 \node [ndnode, right = of burger] (mc) {\sf McBurger};
 \draw[darr] (burger) to node[above] {$\delta_7$} (mc);
 \draw[darr] (mc) to node[above] {$\delta_8$} (cash);
-\draw[green,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
+\draw[purple,darr] (lunch) to node[above] {\( \delta_1 \)} (vee);
 \draw[darr] (pizza) to node[above] {\( \delta_3 \)} (luigi);
 \draw[darr] (king) to node[above] {\( \delta_4 \)} (ncash);
 \draw[darr] (luigi) to node[above] {\( \delta_5 \)} (cash);
-\draw[darr] (Monday) to node[above] {$\delta_6$} (nMc);
+\draw[purple,darr] (Monday) to node[above] {$\delta_6$} (nMc);
 % \draw[darr,red] (vee) to (cash);
 \end{tikzpicture}
 
@@ -1606,7 +1645,7 @@ We get neither ${\sf cash}$ nor $\neg {\sf cash}$ as a consequence, as expected.
 \draw[-] (burger) to node[ospale] (wedge) {$\wedge$} (nMc);
 \node [ospale,right = of wedge] (king) {\alert<5-6>{\sf KingBurger}};
 \draw[darr] (wedge) to node[above] {$\delta_2$} (king);
-\node [ospale,right = of king] (ncash) {\alert<4>{\alert<6>{$\neg$ {\sf cash}}}};
+\node [ospale,right = of king] (ncash) {{\alert<6>{$\neg$ {\sf cash}}}};
 \node [ndnode, right = of pizza] (luigi) {\alert<4>{\sf Luigi}};
 \node [ndnode, above right = of luigi] (cash) {{\sf cash}};
 \node [ndnode, right = of burger] (mc) {\sf McBurger};
