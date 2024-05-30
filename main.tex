@@ -885,7 +885,7 @@ On this basis, we define nonmonotonic \alert{consequence relations}.
 \begin{itemize}
 \item DAC with Def2 and without OR: every stable sets corresponds to a \alert{Reiter} extension and vice versa. \(\nc_1\) is Reiter's sceptical consequence. \pause
 \item DAC with Def1: all 8 standard variants of (constrained) \alert{input-output logic} can be characterized analogously. \pause
-\item We obtain a natural variant for \alert{default logic} with disjunction when adding OR to DAC. \pause
+\item We obtain a natural variant for \alert{default logic} with disjunction when adding OR to DAC (see below). \pause
 \item We obtain \alert{cautious variants} of default logic and IO-logic when opting for grounded argumentation semantics. \pause
 \item The result is \alert{unifying}: only a minor twist in the proof-theory (Def1 vs Def2) leads to a Gestalt-switch in representation.
 \end{itemize}
@@ -955,12 +955,12 @@ More on disjunctions and hypothetical reasoning \ldots{}
 \begin{frame}[label={sec:org9143424}]{More trouble with disjunctions}
 \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
 \node [dnode] (Anne) {\sf Anne};
-\node [alt=<1->{dnode}{ndnode}, right = of Anne] (rat) {\sf Rationalist};
-\node [alt=<2->{dnode}{ndnode}, above right = of rat] (sci) {\sf pro-science};
+\node [dnode, right = of Anne] (rat) {\sf Rationalist};
+\node [ndnode, above right = of rat] (sci) {\sf pro-science};
 
-\node [alt=<3->{dnode}{ndnode}, below right = of rat] (env)   {\sf environmentalist};
-\node [alt=<4>{dnode}{ndnode}, right = of sci] (progmo) {\sf pro-gmo};
-\node [alt=<5>{dnode}{ndnode}, right = of env] (cgmo) {\sf \( \neg \)pro-gmo};
+\node [ndnode, below right = of rat] (env)   {\sf environmentalist};
+\node [ndnode, right = of sci] (progmo) {\sf pro-gmo};
+\node [ndnode, right = of env] (cgmo) {\sf \( \neg \)pro-gmo};
 
 \draw[sarr] (Anne) to (rat);
 \draw[darr] (rat) to [bend left] (sci.180);
@@ -1062,6 +1062,8 @@ With the OR rule:
 We need to track our assumptions when reasoning with cases!
 
 Inspiration: natural deduction.
+
+\vspace{-.5cm}
 
 \[
 \axs{\array{c} \phantom{M} \\ \phantom{M} \\ \phi \vee \psi \endarray}
