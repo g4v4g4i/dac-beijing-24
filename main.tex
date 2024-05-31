@@ -898,7 +898,7 @@ More on disjunctions and hypothetical reasoning \ldots{}
 \begin{frame}[label={sec:org840feb7}]{Similarly}
 \begin{tikzpicture}[scale=1, every node/.style={scale=1, align=center}, rounded corners, decorate, node distance = .3cm and 1.8cm]
 
-\node [] (v) {\( \vee \)};
+\node [] (v) {$\vee$};
 \node [ndnode, above = of v] (burger) {{\sf burger}};
 \node [ndnode, below = of v] (pizza) {{\sf pizza}};
 
@@ -906,9 +906,9 @@ More on disjunctions and hypothetical reasoning \ldots{}
   \node [dnode, fit={(burger) (v) (pizza)}] (vee) {};
 \end{scope}
 
-\node [dnode, left = of vee] (lunch) {\sf Lunch};
+\node [dnode, left = of vee] (lunch) {{\sf Lunch}};
 
-\node [above = of vee, dnode] (Monday) {\sf Monday};
+\node [above = of vee, dnode] (Monday) {{\sf Monday}};
 
 \node [ndnode, right = of burger] (mc) {{\sf McBurger}};
 \node [ndnode, right = of pizza] (luigi) {{\sf Luigi}};
@@ -920,7 +920,7 @@ More on disjunctions and hypothetical reasoning \ldots{}
 \draw[darr] (mc.0) to [bend left] (cash);
 \draw[darr] (luigi.0) to [bend right] (cash);
 
-\draw[darr] (Monday.0) to [bend left] node [sloped] {\( \mid \)} (mc);
+\draw[darr] (Monday.0) to [bend left] node [sloped] {$\mid$} (mc);
 
 \draw[visible on = <2>, darr, draw=red] (vee) to (cash);
 \end{tikzpicture}  
